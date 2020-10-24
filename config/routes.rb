@@ -8,3 +8,4 @@ Rails.application.routes.draw do
   resources :bookings, only: [:index, :show]
   resources :dashboard, only: [:profile]
 end
+
