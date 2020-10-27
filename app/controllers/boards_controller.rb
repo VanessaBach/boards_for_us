@@ -1,4 +1,5 @@
 class BoardsController < ApplicationController
+  skip_before_action :authenticate_user!, only: :index
   before_action :find_board, only:[:show]
 
   def new
@@ -15,7 +16,7 @@ class BoardsController < ApplicationController
   end
 
   def index
-    @board = Board.all
+    @boards = Board.all
   end
 
   def show
