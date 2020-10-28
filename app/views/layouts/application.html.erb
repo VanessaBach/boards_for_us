@@ -20,9 +20,9 @@
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <% if user_signed_in? %>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <% if user_signed_in? %>
             <li class="nav-item">
               <%= link_to "Boards", "#", class: "nav-link" %>
             </li>
@@ -40,16 +40,15 @@
                 <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
               </div>
             </li>
-          </ul>
-        </div>
-      <% else %>
-        <li>
-          <%= link_to('Login', new_user_session_path) %>  
-        </li>
-      <% end %>
+          <% else %>
+            <li class="nav-item">
+              <%= link_to 'Login', new_user_session_path, class: "nav-link" %>  
+            </li>
+          <% end %>    
+        </ul>
+      </div>
     </div>
     <!-- NAVBAR END -->
-
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
