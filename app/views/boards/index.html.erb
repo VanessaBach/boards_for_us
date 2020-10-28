@@ -6,3 +6,20 @@
     </p> 
   </div>
 </div>
+
+<div class="container mt-3">
+  <div class="row row-cols-1 row-cols-md-3 m-3">
+  <% @boards.each do |board| %>
+    <div class="col mb-4">
+      <div class="card h-100">
+        <div class="card-body">
+          <%=board.style%>
+          <%=board.size%>
+          <%=board.year%>
+          <%=board.price_per_day%>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  </div>
+</div>
