@@ -8,6 +8,7 @@ class BoardsController < ApplicationController
 
   def create
     @board = Board.new(board_params)
+    @board.user = current_user
     if @board.save
       redirect_to user_dashboard_path
     else
