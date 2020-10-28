@@ -6,3 +6,17 @@
     </p> 
   </div>
 </div>
+
+<div class="container">
+  <div class="row">
+    <% @boards.each do |board| %>
+      <div class="col-12 col-md-6 col-lg-3">
+        <div class="card mb-2" style="background-image: url(<%= cl_image_path board.photo.key %>);">
+          <div class="card-description">
+            <h2><%= board.style %></h2>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
