@@ -4,6 +4,7 @@ class BoardsController < ApplicationController
 
   def new
     @board = Board.new
+    authorize @board
   end
 
   def create
@@ -14,6 +15,7 @@ class BoardsController < ApplicationController
     else
       render 'new'
     end
+    authorize @board
   end
 
   def index

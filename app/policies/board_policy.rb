@@ -3,6 +3,7 @@ class BoardPolicy < ApplicationPolicy
     def resolve
       scope.all
     end
+  end
     def new?
       true
     end
@@ -10,5 +11,8 @@ class BoardPolicy < ApplicationPolicy
     def create?
       new?
     end
-  end
+
+    def show?
+      true
+    end
 end
