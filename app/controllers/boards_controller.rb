@@ -17,7 +17,7 @@ class BoardsController < ApplicationController
   end
 
   def index
-    @boards = Board.all
+    @boards = policy_scope(Board)
   end
 
   def show
@@ -27,6 +27,7 @@ class BoardsController < ApplicationController
 
   def find_board
     @board = Board.find(params[:id])
+    authorize @board
   end
 
   def board_params
