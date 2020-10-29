@@ -12,5 +12,9 @@ class BookingPolicy < ApplicationPolicy
       new?
     end
 
+    def show?
+      true
+    end
+
   end
 end
