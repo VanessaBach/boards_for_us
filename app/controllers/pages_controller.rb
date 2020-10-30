@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
-  def home
+  def profile
+  	@boards = Board.all
   end
 end

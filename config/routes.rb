@@ -10,7 +10,6 @@ Rails.application.routes.draw do
 
   resources :bookings, only: [:index, :show]
 
-  get '/users/dashboards', to: 'dashboards#profile'
+  get 'pages', to: 'pages#profile'
 
 end
-
