@@ -1,9 +1,10 @@
 <div class="banner" style="background-image: url('<%= image_path 'image2.jpg' %>');">
   <div class="banner-content">
-    <h1>Board for us</h1>
+    <h1>Board for Us</h1>
+    <h2> Welcome to Boards for Us! Here, you can find the best board that fits your goals</h2>
     <p>
       <span id="banner-typed-text"></span>
-    </p> 
+    </p>
   </div>
 </div>
 
@@ -16,7 +17,8 @@
           <%=board.style%>
           <%=board.size%>
           <%=board.year%>
-          <%=board.price_per_day%>
+          <%=board.price_per_day%> <br>
+          <%= link_to "Check this board", board_path(board) %>
         </div>
       </div>
     </div>

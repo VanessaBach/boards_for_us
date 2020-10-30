@@ -15,6 +15,7 @@ class BoardsController < ApplicationController
     else
       render 'new'
     end
+    authorize @board
   end
 
   def index
