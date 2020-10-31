@@ -9,7 +9,7 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     if @booking.save
-      redirect_to users_dashboard_path
+      redirect_to pages_path
     else
       render 'new'
     end
