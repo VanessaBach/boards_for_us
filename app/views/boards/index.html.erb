@@ -12,7 +12,7 @@
   <div class="row">
     <% @boards.each do |board| %>
     <div class="col-6">
-        <% if board.photo.attached? == nil %>
+        <% if board.photo.attached? == true %>
           <div class="card m-4" style="background-image: url(<%= cl_image_path board.photo.key %>);">
            <div class="card-description">
             <h2>Board Style:<%=board.style%></h2>
