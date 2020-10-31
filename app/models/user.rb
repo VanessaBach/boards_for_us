@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :bookings
+  has_many :boards
   has_many :boards, through: :bookings
   validates :name, :age, presence: true
 end

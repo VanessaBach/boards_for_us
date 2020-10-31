@@ -11,7 +11,7 @@ class BoardsController < ApplicationController
     @board = Board.new(board_params)
     @board.user = current_user
     if @board.save
-      redirect_to users_dashboards_path
+      redirect_to pages_path
     else
       render 'new'
     end

@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :find_board, only:[:new,:show]
+  before_action :find_board, only: [ :new, :show, :create ]
 
   def new
     @booking = Booking.new
@@ -8,6 +8,8 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
+    @booking.user = current_user
+    @booking.board = @board
     if @booking.save
       redirect_to pages_path
     else
