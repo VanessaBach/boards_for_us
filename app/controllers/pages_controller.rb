@@ -1,8 +1,7 @@
 class PagesController < ApplicationController
   
   def profile
-  	@boards = current_user.boards
+  	@boards = Board.where(user_id: current_user.id)
   	@bookings = current_user.bookings
   end
-
 end

@@ -19,7 +19,7 @@ class BoardsController < ApplicationController
   end
 
   def index
-    @boards = policy_scope(Board)
+    @boards = policy_scope(Board).order(created_at: :desc)
   end
 
   def show
