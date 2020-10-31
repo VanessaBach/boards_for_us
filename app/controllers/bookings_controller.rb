@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :find_booking, only:[:show]
+  before_action :find_board, only:[:new,:show]
 
   def new
     @booking = Booking.new
@@ -21,13 +21,13 @@ class BookingsController < ApplicationController
   end
 
   def show
+    authorize @booking
   end
 
   private
 
-  def find_booking
+  def find_board
     @board = Board.find(params[:board_id])
-    authorize @booking
   end
 
   def booking_params
