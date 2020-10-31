@@ -13,43 +13,6 @@
   </head>
 
   <body>
-    <!-- NAVBAR -->
-    <!-- <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-      <%= link_to 'Boards For Us', root_path, class: "navbar-brand" %>
-
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <% if user_signed_in? %>
-            <li class="nav-item">
-              <%= link_to "New Board", new_board_path, class: "nav-link" %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "Dashboard", users_dashboards_path, class: "nav-link" %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "Bookings", "#", class: "nav-link" %>
-            </li>
-            <li class="nav-item dropdown">
-              <%= image_tag "https://s3.amazonaws.com/37assets/svn/1065-IMG_2529.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                <%= link_to "Profile", "#", class: "dropdown-item" %>
-                <%= link_to "Sttings", "#", class: "dropdown-item" %>
-                <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-              </div>
-            </li>
-          <% else %>
-            <li class="nav-item">
-              <%= link_to 'Login', new_user_session_path, class: "nav-link" %>  
-            </li>
-          <% end %>    
-        </ul>
-      </div>
-    </div> -->
-    <!-- NAVBAR END -->
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= render 'shared/navbar'%>
