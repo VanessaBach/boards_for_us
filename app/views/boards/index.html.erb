@@ -12,13 +12,13 @@
   <div class="row row-cols-1 row-cols-md-3 m-3">
   <% @boards.each do |board| %>
     <div class="col mb-4">
-      <div class="card h-100">
-        <div class="card-body">
+      <div class="card h-100" style="background-image: url(<%= cl_image_path board.photo.key %>);">
+        <div class="card-description">
           <%=board.style%>
           <%=board.size%>
           <%=board.year%>
           <%=board.price_per_day%> <br>
-          <%= link_to "Check this board", board_path(board) %>
+          <%= link_to "Check this board", board_path(board), class: 'card-link' %>
         </div>
       </div>
     </div>
