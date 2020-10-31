@@ -9,9 +9,21 @@
   left: 0;
 }
 
-.navbar-lewagon-white {
-  background-color: white;
+.navbar-nav {
+  color:white;
 }
+.navbar-lewagon-white {
+  background-color: transparent;
+}
+
+.nav-item {
+  color: white;
+}
+
+.nav-link {
+  color: white !important;
+}
+
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
