@@ -1,8 +1,9 @@
 class BookingsController < ApplicationController
-  before_action :find_booking, only:[:new, :create]
+  before_action :find_booking, only:[:show]
 
   def new
     @booking = Booking.new
+    authorize @booking
   end
 
   def create
@@ -12,6 +13,14 @@ class BookingsController < ApplicationController
     else
       render 'new'
     end
+    authorize @booking
+  end
+
+  def index
+    @bookings = policy_scope(Booking)
+  end
+
+  def show
   end
 
   private
