@@ -32,7 +32,7 @@
           <h2> Board syze (relative to style): <br> <strong><%=@board.size%></strong></h2>
           <h2>Board year: <br> <strong><%=@board.year%></strong></h2>
           <h2>Price per day for this board: <br> <strong> <%=@board.price_per_day%></strong></h2>
-          <%= link_to "Back to all boards", boards_path, class: "btn btn-primary" %>
+          <%= link_to "Back to all boards", boards_path, class: "btn btn-secondary mr-3" %>
           <%= link_to "Rent this board!", new_board_booking_path(@board), class: "btn btn-success" %>
 
         </div>
