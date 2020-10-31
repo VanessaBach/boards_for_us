@@ -1,17 +1,15 @@
 <div class="container">
   <h1>Profile</h1>
-  new board
   <div class="container mt-3">
-  <p>Bookings:</p>
+  <h2>Bookings:</h2>
     <div class="row row-cols-1 row-cols-md-3 m-3">
     <% @bookings.each do |booking| %>
       <div class="col mb-4">
         <div class="card h-100">
-          <div class="card-body">
-            <%=booking.board.style%>
-            <%=booking.board.size%>
-            <%=booking.board.year%>
-            <%=booking.board.price_per_day%>
+          <div class="card-body-dash">
+            <p> Start Date:   <%=booking.begin_date%><br></p>
+            <p> End date:   <%=booking.end_date%><br></p>
+            <p> User:   <%=current_user.name%><br></p>
           </div>
         </div>
       </div>
@@ -25,11 +23,11 @@
     <% @boards.each do |board| %>
       <div class="col mb-4">
         <div class="card h-100">
-          <div class="card-body">
-            <%=board.style%>
-            <%=board.size%>
-            <%=board.year%>
-            <%=board.price_per_day%>
+          <div class="card-body-dash">
+            <p>Style:   <%=board.style%></p>
+            <p>Size:   <%=board.size%> </p>
+            <p>Year:   <%=board.year%> </p>
+            <p>Price per day:   <%=board.price_per_day%> </p>
           </div>
         </div>
       </div>
