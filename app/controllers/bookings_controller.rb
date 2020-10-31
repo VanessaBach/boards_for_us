@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :find_booking, only:[:show]
+  before_action :find_board, only:[:new,:show]
 
   def new
     @booking = Booking.new
@@ -9,7 +9,7 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     if @booking.save
-      redirect_to users_dashboard_path
+      redirect_to pages_path
     else
       render 'new'
     end
@@ -21,13 +21,13 @@ class BookingsController < ApplicationController
   end
 
   def show
+    authorize @booking
   end
 
   private
 
-  def find_booking
+  def find_board
     @board = Board.find(params[:board_id])
-    authorize @booking
   end
 
   def booking_params
