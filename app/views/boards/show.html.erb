@@ -1,25 +1,23 @@
-
-  <div class = "row">
-    <div class = "col-6">
-
-      <div class="banner" style="background-image: url('<%= image_path 'image2.jpg' %>');">
-        <div class="banner-content">
-          <h1><%= @board.style %></h1>
-          <% case @board.style %>
-            <% when "Long" %>
-            <h2> Long boards are the best type for begginners</h2>
-            <% when "Pranchinha" %>
-            <h2> Those are for advanced people</h2>
-            <% when "SUP" %>
-            <h2> Go paddle and chill</h2>
-          <% end %>
-
-          <p>
-            <span id="banner-typed-text"></span>
-          </p>
-        </div>
+<div class = "row" style="margin-top:60px">
+  <div class = "col-6">
+    <div class="banner" style="background-image: url('<%= image_path 'image2.jpg' %>');">
+      <div class="banner-content">
+        <h1><%= @board.style %></h1>
+        <% case @board.style %>
+          <% when "Long" %>
+          <h2> Long boards are the best type for begginners</h2>
+          <% when "Pranchinha" %>
+          <h2> Those are for advanced people</h2>
+          <% when "SUP" %>
+          <h2> Go paddle and chill</h2>
+        <% end %>
+        
+        <p>
+          <span id="banner-typed-text"></span>
+        </p>
       </div>
     </div>
+  </div>
 
 
   <div class = "col-6">
