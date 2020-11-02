@@ -19,7 +19,17 @@ class BoardsController < ApplicationController
   end
 
   def index
-    @boards = policy_scope(Board).order(created_at: :desc)
+    if params[:query].present?
+      @query = params[:query]
+      @column = params[:column_name]
+      if @column == "price_per_day"
+        @boards = policy_scope(Board).where("price_per_day <= ?", "#{@query}").order(created_at: :desc)
+      elsif @column == "year"
+        @boards = policy_scope(Board).where("year >=  ?", "#{@query}").order(created_at: :desc)
+      end
+    else
+      @boards = policy_scope(Board).order(created_at: :desc)
+    end
   end
 
   def show

@@ -1,27 +1,25 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
-  position: fixed;
-  top: 0;
+  background: transparent;
   background-color: transparent;
   transition: 0.5s background-color ease;
   right: 0;
   left: 0;
+  top: 0;
 }
 
 .navbar-nav {
-  color:white;
+  color:white !important;
 }
 .navbar-lewagon-white {
   background-color: transparent;
 }
 
 .nav-item {
-  color: white;
+  color: white !important;
 }
 
 .nav-link {
-  -webkit-text-stroke: 0.2px black;
   color: white !important;
 }
 
@@ -32,4 +30,9 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.btn{
+  border-radius: 12px;
+  font-size: 6px;
 }
