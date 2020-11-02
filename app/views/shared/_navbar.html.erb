@@ -1,6 +1,6 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon fixed-top mt-0">
   <%= link_to root_path, class: "logo" do %>
-    <%= image_tag 'board_logo.jpg' %>
+    <%= image_tag 'logo.png' %>
   <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -11,25 +11,25 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="nav-item">
-          <%= link_to "New Board", new_board_path, class: "nav-link" %>
+          <%= link_to "Add Board", new_board_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Dashboard", pages_path, class: "nav-link" %>
+          <%= link_to "User", pages_path, class: "nav-link" %>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <%= link_to "Bookings", "#", class: "nav-link" %>
-        </li>
+        </li> -->
         <li class="nav-item dropdown">
           <%= image_tag "https://s3.amazonaws.com/37assets/svn/1065-IMG_2529.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "Profile", "#", class: "dropdown-item" %>
-            <%= link_to "Sttings", "#", class: "dropdown-item" %>
+            <%= link_to "Settings", "#", class: "dropdown-item" %>
             <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>
       <% else %>
         <li class="nav-item">
-          <%= link_to 'Login', new_user_session_path, class: "nav-link" %>  
+          <%= link_to 'Login', new_user_session_path, class: "btn btn-outline-secondary btn-sm" %>  
         </li>
       <% end %>    
     </ul>
