@@ -27,11 +27,8 @@ end
 
 def find_sup
   url = "https://easy-surfshop.com/do/cat/sup-construction-solid"
-
-  
   html_file = open(url).read
   html_doc = Nokogiri::HTML(html_file)
-
   photos = []
   html_doc.search('.img-responsive').each do |element|
     photos << element.attribute('src').value
@@ -70,8 +67,8 @@ c = 1
     3.times do
       puts d
       file = URI.open(photos[d])
-  	  b = Board.create(
-  	  	style: style,
+  	  b = Board.new(
+  	  	style: 'SUP',
   	  	size: ["Medium", "Small", "Large"].sample,
   	  	year: (2000..2020).to_a.sample,
   	  	price_per_day: (20..100).to_a.sample,
@@ -79,6 +76,7 @@ c = 1
   	  )
       b.photo.attach(io: file, filename: "#{d}.jpg", content_type: 'image/jpg')
       d += 1
+      b.save!
     end
   end
   c += 1
