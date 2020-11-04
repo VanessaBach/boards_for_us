@@ -13,15 +13,41 @@
   </div> 
 </div>
 
-<form class="form-inline my-2 my-lg-0">
+<!-- <form class="form-inline my-2 my-lg-0">
   <input class="form-control mr-sm-2" name="query" type="number" placeholder="Type here" aria-label="Search" value="<%= params[:query] %>">
   <select class="form-control select required" name="column_name" id="column_name"><option value="price_per_day">price per day</option>
   <option value="year">year</option></select>
   <button class="btn btn-outline-secondary btn-md" type="submit">Search</button>
-</form>
-
-
+</form> -->
 <div class="container">
+
+
+  <%= form_tag boards_path, method: :get, class: "d-flex" do %>
+    <%= number_field_tag :price_per_day,
+      params[:price_per_day],
+      class: "form-control m-1 w-25",
+      placeholder: "Price"
+    %>
+    <%= number_field_tag :year,
+      params[:year],
+      class: "form-control m-1 w-25",
+      placeholder: "Year"
+    %>
+    
+    <%= select_tag :size,
+      raw("<option>Select a size</option><option>Small</option><option>Medium</option><option>Large</option>"),
+      class: "form-control select required m-1 w-25",
+      placeholder: "Size"
+    %>
+    <%= select_tag :style,
+      raw("<option>Select a style</option><option>Pranchinha</option><option>SUP</option><option>Long</option>"),
+      class: "form-control select required m-1 w-25",
+      placeholder: "Style"
+    %>
+    <%= submit_tag "Search", class: "btn btn-outline-secondary btn-md" %>
+  <% end %>
+
+
   <div class="row">
     <% @boards.each do |board| %>
     <div class="col-6">
