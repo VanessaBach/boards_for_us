@@ -1,12 +1,13 @@
 <div class = "row" style="margin-top:90px">
   <div class = "col-6">
-    <div class="banner" style="background-image: url(<%= cl_image_path @board.photo.key %>);">
+    <div class="banner mt-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path @board.photo.key %>)">
       <div class="banner-content text-center">
         <h1 class = text-center><%= @board.style %></h1>
         <% case @board.style %>
           <% when "Long" %>
           <h2> Long boards are the best type for begginners</h2>
-          <% when "Pranchinha" %>
+          <% when "Pranchinha" %>    <div class="banner mt-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path @board.photo.key %>)">
+
           <h2> Those are for advanced people</h2>
           <% when "SUP" %>
           <h2> Go paddle and chill</h2>
@@ -38,3 +39,5 @@
     </div>
   </div>
 </div>
+
+
