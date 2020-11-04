@@ -30,6 +30,13 @@ class BoardsController < ApplicationController
     else
       @boards = policy_scope(Board).order(created_at: :desc)
     end
+
+    @markers = @boards.map do |board|
+      {
+        lat: board.latitude,
+        lng: board.longitude
+      }
+    end
   end
 
   def show
@@ -43,6 +50,6 @@ class BoardsController < ApplicationController
   end
 
   def board_params
-    params.require(:board).permit(:style, :size, :year, :price_per_day, :photo)
+    params.require(:board).permit(:style, :size, :year, :price_per_day, :photo, :address)
   end
 end

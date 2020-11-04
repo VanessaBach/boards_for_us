@@ -26,13 +26,17 @@ require("channels")
 import "bootstrap";
 import { loadDynamicBannerText } from '../components/banner';
 import { initUpdateNavbarOnScroll } from '../components/navbar';
+import { initMapbox } from '../plugins/init_mapbox';
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
 document.addEventListener('turbolinks:load', () => {
+  console.log('to aqui')
+
+  initMapbox();
 	loadDynamicBannerText();
-	initUpdateNavbarOnScroll();
+  initUpdateNavbarOnScroll();
   // Call your functions here, e.g:
   // initSelect2();
-});
+  });
