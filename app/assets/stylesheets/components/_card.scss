@@ -1,6 +1,5 @@
 .card {
   height: 175px;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   background-size: cover !important;
   background-position: center;
   color: white;
@@ -33,5 +32,15 @@
 }
 
 .card-body-dash p{
-  color:black
+  color:black;
+}
+
+.h2-style{
+  text-align: center;
+  padding-top: 4px;
+}
+
+.card-body-dash img {
+  object-fit: cover;
+  height: 330px;
 }

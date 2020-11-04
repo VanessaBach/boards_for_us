@@ -1,8 +1,8 @@
-<div class = "row" style="margin-top:60px">
+<div class = "row" style="margin-top:90px">
   <div class = "col-6">
-    <div class="banner" style="background-image: url('<%= image_path 'image2.jpg' %>');">
-      <div class="banner-content">
-        <h1><%= @board.style %></h1>
+    <div class="banner" style="background-image: url(<%= cl_image_path @board.photo.key %>);">
+      <div class="banner-content text-center">
+        <h1 class = text-center><%= @board.style %></h1>
         <% case @board.style %>
           <% when "Long" %>
           <h2> Long boards are the best type for begginners</h2>
@@ -11,7 +11,7 @@
           <% when "SUP" %>
           <h2> Go paddle and chill</h2>
         <% end %>
-        
+
         <p>
           <span id="banner-typed-text"></span>
         </p>
