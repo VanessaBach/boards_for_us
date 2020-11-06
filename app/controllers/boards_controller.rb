@@ -52,7 +52,8 @@ class BoardsController < ApplicationController
     @markers = @boards.map do |board|
       {
         lat: board.latitude,
-        lng: board.longitude
+        lng: board.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { board: board })
       }
     end
   end
