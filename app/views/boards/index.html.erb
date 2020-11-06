@@ -32,7 +32,7 @@
       class: "form-control m-1 w-25",
       placeholder: "Year"
     %>
-    
+
     <%= select_tag :size,
       raw("<option>Select a size</option><option>Small</option><option>Medium</option><option>Large</option>"),
       class: "form-control select required m-1 w-25",
@@ -51,7 +51,7 @@
     <% @boards.each do |board| %>
     <div class="col-3">
         <% if board.photo.attached? == true %>
-          <div class="card m-1" style="background-image: url(<%= cl_image_path board.photo.key %>);">
+          <div class="card m-1 mt-3" style="background-image: url(<%= cl_image_path board.photo.key %>);">
            <div class="card-description">
             <h2>Board Style:<%=board.style%></h2>
             <h2>Price per day:<%=board.price_per_day%> <br></h2>
