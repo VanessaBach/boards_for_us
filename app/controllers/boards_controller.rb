@@ -53,7 +53,8 @@ class BoardsController < ApplicationController
       {
         lat: board.latitude,
         lng: board.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { board: board })
+        infoWindow: render_to_string(partial: "info_window", locals: { board: board }),
+        image_url: helpers.asset_url('https://travelpedia.com.br/wp-content/uploads/2019/07/surf-icon.png')
       }
     end
   end
