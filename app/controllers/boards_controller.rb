@@ -1,6 +1,6 @@
 class BoardsController < ApplicationController
-  skip_before_action :authenticate_user!, only: :index
-  before_action :find_board, only:[:show]
+  skip_before_action :authenticate_user!, only: [:index]
+  before_action :find_board, only: [:show]
 
   def new
     @board = Board.new
@@ -19,13 +19,31 @@ class BoardsController < ApplicationController
   end
 
   def index
-    if params[:query].present?
-      @query = params[:query]
-      @column = params[:column_name]
-      if @column == "price_per_day"
-        @boards = policy_scope(Board).where("price_per_day <= ?", "#{@query}").order(created_at: :desc)
-      elsif @column == "year"
-        @boards = policy_scope(Board).where("year >=  ?", "#{@query}").order(created_at: :desc)
+    if params[:commit].present?
+      query = ""
+      price_per_day = params[:price_per_day].to_i
+      year = params[:year].to_i
+      size = params[:size]
+      style = params[:style]
+      if price_per_day != 0
+        query += "price_per_day <= #{price_per_day} AND "
+      end
+      if year != 0
+        query += "year >= #{year} AND "
+      end
+      if size != "Select a size"
+        query += "size = '#{size}' AND "
+      end
+      if style != "Select a style"
+        query += "style = '#{style}' AND "
+      end
+      
+
+      if query != ""
+        query = query[0..-5]
+        @boards = policy_scope(Board).where(query).order(created_at: :desc)
+      else
+        @boards = policy_scope(Board).order(created_at: :desc)
       end
     else
       @boards = policy_scope(Board).order(created_at: :desc)
