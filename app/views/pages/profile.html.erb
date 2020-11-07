@@ -1,77 +1,120 @@
-<div class="container">
-  <h1> My Dashboard Profile</h1>
-  <div class="board-container">
-    <div class="container mt-5 p-2">
-      <div class = "h2-style">
-        <h2> Bookings by <%=current_user.name%> </h2>
-      </div>
-      <div class="row row-cols-1 row-cols-md-3 m-3">
-      <% @bookings.each do |booking| %>
-        <div class="col mb-4">
-          <div class="card h-100">
-            <div class="card-body-dash">
-              <p> Start Date:   <%=booking.begin_date%><br></p>
-              <p> End date:   <%=booking.end_date%><br></p>
-              <p> Total number of days: <%=(booking.end_date - booking.begin_date).to_i%> </p>
-              <p> Price per day: <%=(booking.board.price_per_day)%> </p>
-              <p> <strong> Total price: <%=((booking.end_date - booking.begin_date).to_i) * booking.board.price_per_day %> </strong></p>
-            </div>
-          </div>
-        </div>
-      <% end %>
-      </div>
-    </div>
-  </div>
- <div class="board-container">
-    <div class="container mt-5 p-2">
-      <div class = "h2-style">
-        <h2>My Boards that are being rented:</h2>
-      </div>
-        <div class="row">
-          <% @boards_owners.each do |board| %>
-            <div class="col-xs-6 col-md-4 mb-5 mb-2 p-4">
-              <div class="card h-100 ">
-                <div class="card-body-dash ">
-                  <img class="card-img-top" src= <%= cl_image_path board.photo.key %> alt="Card image cap">
-                  <!-- <div class="banner" style="background-image: url(<%= cl_image_path board.photo.key %>);"> -->
-                  <div class="char ml-3 mt-2">
-                    <p>--> Style:   <%=board.style%></p>
-                    <p>--> Size:   <%=board.size%></p>
-                    <p>--> Year:   <%=board.year%></p>
-                    <p>--> Price per day:   <%=board.price_per_day%> </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          <% end %>
-        </div>
-    </div>
-  </div>
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon-profile fixed-top mt-0">
+  <%= link_to root_path, class: "logo" do %>
+    <%= image_tag 'logo.png' %>
+  <% end %>
 
-  <div class="board-container">
-    <div class="container mt-5 p-2">
-      <div class = "h2-style">
-        <h2>Boards I rented:</h2>
-      </div>
-        <div class="row">
-          <% @boards_users.each do |board| %>
-            <div class="col-xs-6 col-md-4 mb-2 p-4">
-              <div class="card h-100">
-                <div class="card-body-dash ">
-                  <img class="card-img-top" src= <%= cl_image_path board.photo.key %> alt="Card image cap">
-                  <!-- <div class="banner" style="background-image: url(<%= cl_image_path board.photo.key %>);"> -->
-                  <div class="char ml-3 mt-2">
-                    <p>--> Style:   <%=board.style%></p>
-                    <p>--> Size:   <%=board.size%></p>
-                    <p>--> Year:   <%=board.year%></p>
-                    <p>--> Price per day:   <%=board.price_per_day%> </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          <% end %>
-        </div>
-    </div>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <% if user_signed_in? %>
+        <li class="nav-item">
+          <%= link_to "Add Board", new_board_path, class: "nav-link-dash" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "User", pages_path, class: "nav-link-dash" %>
+        </li>
+        <!-- <li class="nav-item">
+          <%= link_to "Bookings", "#", class: "nav-link" %>
+        </li> -->
+        <li class="nav-item dropdown">
+          <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <%= link_to "Profile", "#", class: "dropdown-item" %>
+            <%= link_to "Settings", "#", class: "dropdown-item" %>
+            <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+          </div>
+        </li>
+      <% else %>
+        <li class="nav-item">
+          <%= link_to 'Login', new_user_session_path, class: "btn btn-outline-secondary btn-sm" %>
+        </li>
+      <% end %>
+    </ul>
   </div>
 </div>
 
+
+
+ <div class="page">
+  <div class="container page-inside-color">
+    <div class="text-center">
+      <h1> My Dashboard Profile</h1>
+    </div>
+    <div class="board-container">
+      <div class="container mt-5 p-2">
+        <div class = "h2-style">
+          <h2> Bookings by <%=current_user.name%> </h2>
+        </div>
+        <div class="row row-cols-1 row-cols-md-3 m-3">
+        <% @bookings.each do |booking| %>
+          <div class="col mb-4">
+            <div class="card h-100">
+              <div class="card-body-dash">
+                <p> Start Date:   <%=booking.begin_date%><br></p>
+                <p> End date:   <%=booking.end_date%><br></p>
+                <p> Total number of days: <%=(booking.end_date - booking.begin_date).to_i%> </p>
+                <p> Price per day: <%=(booking.board.price_per_day)%> </p>
+                <p> <strong> Total price: <%=((booking.end_date - booking.begin_date).to_i) * booking.board.price_per_day %> </strong></p>
+              </div>
+            </div>
+          </div>
+        <% end %>
+        </div>
+      </div>
+    </div>
+   <div class="board-container">
+      <div class="container mt-5 p-2">
+        <div class = "h2-style">
+          <h2>My Boards that are being rented:</h2>
+        </div>
+          <div class="row">
+            <% @boards_owners.each do |board| %>
+              <div class="col-xs-6 col-md-4 mb-5 mb-2 p-4">
+                <div class="card h-100 ">
+                  <div class="card-body-dash ">
+                    <img class="card-img-top" src= <%= cl_image_path board.photo.key %> alt="Card image cap">
+                    <!-- <div class="banner" style="background-image: url(<%= cl_image_path board.photo.key %>);"> -->
+                    <div class="char ml-3 mt-2">
+                      <p>--> Style:   <%=board.style%></p>
+                      <p>--> Size:   <%=board.size%></p>
+                      <p>--> Year:   <%=board.year%></p>
+                      <p>--> Price per day:   <%=board.price_per_day%> </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+      </div>
+    </div>
+
+    <div class="board-container">
+      <div class="container mt-5 p-2">
+        <div class = "h2-style">
+          <h2>Boards I rented:</h2>
+        </div>
+          <div class="row">
+            <% @boards_users.each do |board| %>
+              <div class="col-xs-6 col-md-4 mb-2 p-4">
+                <div class="card h-100">
+                  <div class="card-body-dash ">
+                    <img class="card-img-top" src= <%= cl_image_path board.photo.key %> alt="Card image cap">
+                    <!-- <div class="banner" style="background-image: url(<%= cl_image_path board.photo.key %>);"> -->
+                    <div class="char ml-3 mt-2">
+                      <p>--> Style:   <%=board.style%></p>
+                      <p>--> Size:   <%=board.size%></p>
+                      <p>--> Year:   <%=board.year%></p>
+                      <p>--> Price per day:   <%=board.price_per_day%> </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>

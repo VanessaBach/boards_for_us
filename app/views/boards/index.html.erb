@@ -20,7 +20,9 @@
   <button class="btn btn-outline-secondary btn-md" type="submit">Search</button>
 </form> -->
 <div class="container">
-
+  <div class = "text-center mb-5">
+    <h2> Welcome to Boards for us. Here, you can rent the board that will best fit your goals </h2>
+  </div>
 
   <%= form_tag boards_path, method: :get, class: "d-flex" do %>
     <%= number_field_tag :price_per_day,
@@ -51,7 +53,7 @@
   <div class="row">
     <% @boards.each do |board| %>
     <div class="col-3">
-      <%= link_to board_path(board) do %>   
+      <%= link_to board_path(board) do %>
         <div class="card card-description m-1 align-text-bottom" style="background-image: url(<%= cl_image_path board.photo.key %>);">
           <h2 class="hide-p p1"><%=board.style%></h2>
           <h2 class="hide-p">USD <%=board.price_per_day%></h2>
@@ -63,11 +65,11 @@
   <div class='paginate-element'>
   <%= will_paginate @boards, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
   </div>
-  <div 
+  <div
     class="mt-3 border rounded"
     id="map"
     style="width: 100%; height: 600px;"
     data-markers="<%= @markers.to_json %>"
     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-    
+
 </div>
