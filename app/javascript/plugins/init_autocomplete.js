@@ -4,8 +4,7 @@ const initAutocomplete = () => {
   const addressInput = document.getElementById('board_address');
   if (addressInput) {
     places({ container: addressInput });
-  }
-  console.log('okok');
+  };
 };
 
 export { initAutocomplete };
