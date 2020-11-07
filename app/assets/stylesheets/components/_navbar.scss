@@ -8,6 +8,17 @@
   top: 0;
 }
 
+.navbar-lewagon-profile {
+  justify-content: space-between;
+  background: white;
+  background-color: #0076a3;
+  // transition: 0.05s background-color ease;
+  right: 0;
+  left: 0;
+  top: 0;
+  padding-bottom:20px;
+}
+
 .navbar-nav {
   color:white !important;
 }
@@ -21,6 +32,11 @@
 }
 
 .nav-link {
+  color: white !important;
+  font-size: 40px;
+  margin: 10px;
+}
+.nav-link-dash {
   color: white !important;
   font-size: 40px;
   margin: 10px;
@@ -44,4 +60,12 @@
 .btn{
   border-radius: 12px;
   font-size: 6px;
+}
+
+.navbar-lewagon-profile .navbar-collapse {
+  flex-grow: 0;
+}
+
+.navbar-lewagon-profile .navbar-brand img {
+  width: 40px;
 }
