@@ -41,18 +41,20 @@ class BoardsController < ApplicationController
 
       if query != ""
         query = query[0..-5]
-        @boards = policy_scope(Board).where(query).order(created_at: :desc)
+        @boards = policy_scope(Board.paginate(page: params[:page], per_page: 8)).where(query).order(created_at: :desc)
       else
-        @boards = policy_scope(Board).order(created_at: :desc)
+        @boards = policy_scope(Board.paginate(page: params[:page], per_page: 8)).order(created_at: :desc)
       end
     else
-      @boards = policy_scope(Board).order(created_at: :desc)
+      @boards = policy_scope(Board.paginate(page: params[:page], per_page: 8)).order(created_at: :desc)
     end
 
     @markers = @boards.map do |board|
       {
         lat: board.latitude,
-        lng: board.longitude
+        lng: board.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { board: board }),
+        image_url: helpers.asset_url('https://travelpedia.com.br/wp-content/uploads/2019/07/surf-icon.png')
       }
     end
   end
