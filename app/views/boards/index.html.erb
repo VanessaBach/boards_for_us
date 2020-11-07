@@ -50,23 +50,12 @@
   <div class="row">
     <% @boards.each do |board| %>
     <div class="col-3">
-        <% if board.photo.attached? == true %>
-          <div class="card m-1 mt-3" style="background-image: url(<%= cl_image_path board.photo.key %>);">
-           <div class="card-description">
-            <h2>Board Style:<%=board.style%></h2>
-            <h2>Price per day:<%=board.price_per_day%> <br></h2>
-            <%= link_to "Check this board", board_path(board), class: 'btn btn-blue p-0' %>
-          </div>
-        </div>
-        <% else%>
-          <div class="card m-4" style="background-image: url(https://images.unsplash.com/photo-1531722569936-825d3dd91b15?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80);">
-            <div class="card-description">
-              <h2>Board Style: <%=board.style%></h2>
-              <h2>Price per day: <%=board.price_per_day%> <br></p>
-              <%= link_to "Check this board", board_path(board), class: 'btn btn-blue p-0' %>
-            </div>
-          </div>
-      <% end %>
+      <%= link_to board_path(board) do %>   
+        <div class="card card-description m-1 align-text-bottom" style="background-image: url(<%= cl_image_path board.photo.key %>);">
+          <h2 class="hide-p p1"><%=board.style%></h2>
+          <h2 class="hide-p">Price/day:<%=board.price_per_day%></h2>
+        </div>  
+      <% end %>     
     </div>
     <% end %>
   </div>
