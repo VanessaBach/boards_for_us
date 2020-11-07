@@ -1,1 +1,9 @@
-<h2><%= board.style %></h2>
+<div class="card-map" style="width: 8rem;">
+  <img src="<%= cl_image_path board.photo.key %>" class="card-img-top">
+  <div class="card-body">
+    <h2>Board Style:<%=board.style%></h2>
+    <h3>Price per day:<%=board.price_per_day%></h3>
+    <%= link_to "Explore", board_path(board), class: 'btn-map' %>
+  </div>
+</div>
+
