@@ -5,6 +5,7 @@ const initAutocomplete = () => {
   if (addressInput) {
     places({ container: addressInput });
   }
+  console.log('okok');
 };
 
 export { initAutocomplete };
