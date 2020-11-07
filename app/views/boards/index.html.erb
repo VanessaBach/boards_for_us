@@ -1,7 +1,8 @@
 <div class="banner" style="background-image: url('<%= image_path 'image4.jpg' %>');">
   <div class="banner-content">
     <h1>BOARDS</h1>
-    <h1>FOR US</h1>
+    <h1>FOR</h1>
+    <h1>US</h1>
   </div>
 
   <div class="banner-subtitle">
@@ -55,9 +56,9 @@
       <%= link_to board_path(board) do %>
         <div class="card card-description m-1 align-text-bottom" style="background-image: url(<%= cl_image_path board.photo.key %>);">
           <h2 class="hide-p p1"><%=board.style%></h2>
-          <h2 class="hide-p">Price/day:<%=board.price_per_day%></h2>
-        </div>
-      <% end %>
+          <h2 class="hide-p">USD <%=board.price_per_day%></h2>
+        </div>  
+      <% end %>     
     </div>
     <% end %>
   </div>
