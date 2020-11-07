@@ -5,7 +5,7 @@
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
   background-size: cover !important;
   display: flex;
-  // align-items: center;
+  // align-items: right;
   // justify-content: center;
   margin-bottom: 15px;
   margin-right: 10px;
@@ -15,12 +15,13 @@
 
 .banner-content h1 {
   // padding-top: 100px;
-  // margin-left: 1025px;
+  // margin-left: 100px;
   color: white;
   text-shadow: 0 0 3px #255784;
   font-family: "Allerta Stencil" !important;
-  font-size: 80px;
-  text-align: center;
+  font-size: 90px;
+  text-align: right;
+  padding-right: 50px;
 }
 
 .banner-content {
@@ -29,11 +30,11 @@
 
 
 .banner-subtitle{
-  padding-top: 50px;
+  padding-top: 0px;
   // margin-left: -800px;
   color: white;
   font-family: "Allerta Stencil" !important;
-  font-size: 25px;
+  font-size: 20px;
   text-shadow: 0 0 3px #255784;
   text-align: center;
 }

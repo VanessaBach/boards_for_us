@@ -5,6 +5,7 @@
   color: white;
   position: relative;
   border-radius: 5%;
+  padding-bottom: 20px;
 }
 
 .card-description{
@@ -13,12 +14,14 @@
     opacity: 0.70;
     color: black;
     text-decoration: none;
+    // border-width: 2px;
+    // border-color: gray;
   }
   .p1 {
-    padding-top: 180px;
+    padding-top: 10px;
   }
   h2 {
-  font-size: 20px;
+  font-size: 15px;
   text-decoration: none;
   text-align: left;    
   }
