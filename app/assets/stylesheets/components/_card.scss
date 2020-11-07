@@ -1,6 +1,6 @@
 .card {
   height: 280px;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
   background-size: cover !important;
   background-position: center;
   color: white;
@@ -14,9 +14,8 @@
 .card-description h2 {
   font-size: 20px;
   font-weight: bold;
-  color:white;
-  text-shadow: #0000FF;
-
+  color: white;
+  text-shadow: #0000ff;
 }
 .card-link {
   position: absolute;
@@ -32,11 +31,11 @@
   opacity: 0.1;
 }
 
-.card-body-dash p{
-  color:black;
+.card-body-dash p {
+  color: black;
 }
 
-.h2-style{
+.h2-style {
   text-align: center;
   padding-top: 4px;
 }
@@ -46,7 +45,6 @@
   height: 330px;
 }
 
-
-.board-container{
+.board-container {
   border: black 1px solid;
 }

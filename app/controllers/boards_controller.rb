@@ -41,12 +41,12 @@ class BoardsController < ApplicationController
 
       if query != ""
         query = query[0..-5]
-        @boards = policy_scope(Board).where(query).order(created_at: :desc)
+        @boards = policy_scope(Board.paginate(page: params[:page], per_page: 8)).where(query).order(created_at: :desc)
       else
-        @boards = policy_scope(Board).order(created_at: :desc)
+        @boards = policy_scope(Board.paginate(page: params[:page], per_page: 8)).order(created_at: :desc)
       end
     else
-      @boards = policy_scope(Board).order(created_at: :desc)
+      @boards = policy_scope(Board.paginate(page: params[:page], per_page: 8)).order(created_at: :desc)
     end
 
     @markers = @boards.map do |board|
